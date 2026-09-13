@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* LIGHT MODE (Default) - Based on the off-white/cream from the PDF */
+    --color-void: 244 242 235;        /* Creamy off-white bg */
+    --color-panel: 255 255 255;       /* Pure white for panels */
+    --color-panel-light: 238 236 228; /* Slightly darker panel */
+    --color-gold: 201 162 39;         /* #C9A227 - Primary Gold */
+    --color-gold-light: 181 142 27;   /* Darker gold for better contrast on light */
+    --color-gold-dim: 220 185 75;     /* Lighter dim gold */
+    --color-ivory: 15 15 15;          /* Near black for main text */
+    --color-ivory-dim: 92 88 78;      /* Deep gray for dim text */
+    --color-teal: 18 62 61;
+    --color-teal-light: 31 94 92;
+  }
+
+  .dark {
+    /* DARK MODE - Exactly matching your original hex codes */
+    --color-void: 10 9 8;           /* #0A0908 */
+    --color-panel: 21 19 14;        /* #15130E */
+    --color-panel-light: 29 26 19;  /* #1D1A13 */
+    --color-gold: 201 162 39;       /* #C9A227 */
+    --color-gold-light: 232 199 102;/* #E8C766 */
+    --color-gold-dim: 138 114 38;   /* #8A7226 */
+    --color-ivory: 243 239 228;     /* #F3EFE4 */
+    --color-ivory-dim: 184 178 162; /* #B8B2A2 */
+    --color-teal: 18 62 61;         /* #123E3D */
+    --color-teal-light: 31 94 92;   /* #1F5E5C */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-void text-ivory font-body antialiased transition-colors duration-300;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+  
+  ::selection {
+    @apply bg-gold/30 text-ivory;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid rgb(var(--color-gold));
+    outline-offset: 3px;
+  }
+
+  /* Keep transitions smooth when toggling mode */
+  * {
+    @apply transition-colors duration-300;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .kicker {
+    @apply text-[13px] tracking-wide text-gold-light/90 font-medium flex items-center gap-2;
+  }
+  .kicker::before {
+    content: "";
+    @apply block w-4 h-px bg-gold;
+  }
+
+  .section {
+    @apply px-6 sm:px-10 lg:px-16;
+  }
+
+  .section-inner {
+    @apply max-w-content mx-auto;
+  }
+
+  .divider {
+    @apply border-t border-gold/15;
+  }
+}
