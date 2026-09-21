@@ -46,6 +46,7 @@ export default function Nav() {
     >
       <div className="section">
         <div className="section-inner flex items-center justify-between h-16 sm:h-20">
+          <img src="/favicon.svg" alt="AZURA Logo" className="h-10 w-auto" />
           <a href="#top" className="font-display font-semibold tracking-tight text-lg text-ivory">
             AZURA<span className="text-gold">.</span>
           </a>

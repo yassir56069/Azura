@@ -10,7 +10,7 @@ export const site = {
   sector: "Food & Beverage Distribution",
   email: "info@azura.mu",
   phone: "+230 5258 4000",
-  address: "Closel, Vacoas, Mauritius",
+  address: "Rose Hill, Mauritius",
   domain: "azura.mu",
 };
 
